@@ -194,7 +194,7 @@ export default function HomeScreen({ navigation, route }) {
 
         <Button
           title={editingProductId ? "Atualizar produto" : "Cadastrar produto"}
-        //   onPress={handleSaveProduct}
+          onPress={() => navigation.navigate("Game")}
         />
 
         {editingProductId && (
