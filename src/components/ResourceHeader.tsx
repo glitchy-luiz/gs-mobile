@@ -1,8 +1,9 @@
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import ResourceCircle from "./ResourceCircle"
+import { Resources } from "../game/types/gameTypes"
 
-export default function ResourceHeader({ resources }: any) {
+export default function ResourceHeader({ resources }: {resources: Resources}) {
   return (
     <View style={styles.container}>
       <ResourceCircle label="Oxigênio" value={resources.oxigenio} color="#4FC3F7" />

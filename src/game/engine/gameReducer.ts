@@ -1,32 +1,33 @@
-import { GameState, GameAction } from "../types/gameTypes"
+import { GameState, GameAction, DifficultyMultipliers } from "../types/gameTypes"
 import { updateResources, applyStructureEffect } from "./resourceSystem"
 import { structures } from "../data/structure"
 
 export const initialState: GameState = {
-  resources: {
-    oxigenio: 100,
-    comida: 100,
-    energia: 100
-  },
+  resources: { oxigenio: 100, comida: 100, energia: 100 },
   time: 0,
-  gameOver: false
+  gameOver: false,
+  achievements: {},
 }
 
-export function gameReducer(state: GameState, action: GameAction): GameState {
-  if (state.gameOver && action.type !== "RESET") return state
+// O reducer agora é uma factory que recebe os multipliers
+// e devolve o reducer já configurado com eles
+export function makeGameReducer(multipliers: DifficultyMultipliers) {
+  return function gameReducer(state: GameState, action: GameAction): GameState {
+    if (state.gameOver && action.type !== "RESET") return state
 
-  switch (action.type) {
-    case "TICK":
-      return updateResources(state)
+    switch (action.type) {
+      case "TICK":
+        return updateResources(state, multipliers)  // ← passa multipliers
 
-    case "APPLY_STRUCTURE":
-      const structure = structures[action.payload]
-      return applyStructureEffect(state, structure.efeito)
+      case "APPLY_STRUCTURE":
+        const structure = structures[action.payload as keyof typeof structures]
+        return applyStructureEffect(state, structure.efeito)
 
-    case "RESET":
-      return initialState
+      case "RESET":
+        return initialState
 
-    default:
-      return state
+      default:
+        return state
+    }
   }
 }
