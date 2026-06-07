@@ -1,56 +1,89 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Button, Alert } from 'react-native';
-// import { registerUser } from '../firebase/authService';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import { registerUser } from '../firebase/authService';
 
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   async function handleRegister() {
     if (!name.trim() || !email.trim() || !password.trim()) {
-      Alert.alert('Atenção', 'Preencha nome, email e senha.');
+      Alert.alert('Atenção', 'Preencha todos os campos.');
       return;
     }
-
     try {
-    //   await registerUser(email.trim(), password);
-      Alert.alert('Sucesso', 'Usuário cadastrado com sucesso.');
-      navigation.goBack();
+      setLoading(true);
+      await registerUser(email.trim(), password);
+      Alert.alert('Sucesso', 'Conta criada com sucesso!', [
+        { text: 'Fazer login', onPress: () => navigation.goBack() }
+      ]);
     } catch (error) {
       Alert.alert('Erro ao cadastrar', error.message);
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}>
-      <Text style={{ fontSize: 24, marginBottom: 20 }}>Cadastro</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>🪐 Criar Conta</Text>
+      <Text style={styles.subtitle}>Prepare-se para explorar o universo</Text>
 
       <TextInput
+        style={styles.input}
         placeholder="Nome"
+        placeholderTextColor="#555"
         value={name}
         onChangeText={setName}
-        style={{ borderWidth: 1, marginBottom: 10, padding: 10 }}
       />
 
       <TextInput
+        style={styles.input}
         placeholder="Email"
+        placeholderTextColor="#555"
         value={email}
         onChangeText={setEmail}
         autoCapitalize="none"
         keyboardType="email-address"
-        style={{ borderWidth: 1, marginBottom: 10, padding: 10 }}
       />
 
       <TextInput
+        style={styles.input}
         placeholder="Senha"
+        placeholderTextColor="#555"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
-        style={{ borderWidth: 1, marginBottom: 10, padding: 10 }}
       />
 
-      <Button title="Cadastrar" onPress={handleRegister} />
+      <TouchableOpacity
+        style={[styles.button, loading && styles.buttonDisabled]}
+        onPress={handleRegister}
+        disabled={loading}
+      >
+        <Text style={styles.buttonText}>{loading ? 'Cadastrando...' : 'Cadastrar'}</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Text style={styles.link}>Já tem conta? <Text style={styles.linkBold}>Fazer login</Text></Text>
+      </TouchableOpacity>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container:      { flex: 1, backgroundColor: '#0a0a0f', justifyContent: 'center', padding: 24 },
+  title:          { fontSize: 32, fontWeight: 'bold', color: '#fff', textAlign: 'center', marginBottom: 8 },
+  subtitle:       { fontSize: 14, color: '#888', textAlign: 'center', marginBottom: 40 },
+  input: {
+    backgroundColor: '#1a1a2e', color: '#fff', borderRadius: 10,
+    padding: 14, fontSize: 16, borderWidth: 1, borderColor: '#333', marginBottom: 16,
+  },
+  button:         { backgroundColor: '#4a90e2', borderRadius: 12, padding: 16, alignItems: 'center', marginBottom: 20 },
+  buttonDisabled: { opacity: 0.5 },
+  buttonText:     { color: '#fff', fontSize: 16, fontWeight: 'bold' },
+  link:           { color: '#888', textAlign: 'center' },
+  linkBold:       { color: '#4a90e2', fontWeight: 'bold' },
+});

@@ -1,8 +1,9 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { useGame } from "../game/hooks/useGame"
 import ResourceHeader from "../components/ResourceHeader"
-import { PlanetData } from "../game/types/gameTypes"
+import { PlanetData, StructureKey } from "../game/types/gameTypes"
+import { structures } from "../game/data/structure"
 
 export default function GameScreen({ navigation, route }: any) {
   const planetData: PlanetData = route.params?.planetData ?? {
@@ -12,6 +13,8 @@ export default function GameScreen({ navigation, route }: any) {
   }
 
   const { state, dispatch, multipliers } = useGame(planetData)
+
+  const [selectedStructure, setSelectedStructure] = useState<StructureKey | null>(null)
 
   // Navega para GameOver quando o jogo termina
   useEffect(() => {
@@ -46,7 +49,11 @@ export default function GameScreen({ navigation, route }: any) {
       <View style={styles.structuresRow}>
         <TouchableOpacity
           style={styles.structureBtn}
-          onPress={() => dispatch({ type: "APPLY_STRUCTURE", payload: "cozinha" })}
+            onPress={() => {
+              setSelectedStructure("cozinha")
+              dispatch({ type: "APPLY_STRUCTURE", payload: "cozinha" })
+            }}
+
         >
           <Text style={styles.structureEmoji}>🍳</Text>
           <Text style={styles.structureLabel}>Cozinha</Text>
@@ -54,7 +61,11 @@ export default function GameScreen({ navigation, route }: any) {
 
         <TouchableOpacity
           style={styles.structureBtn}
-          onPress={() => dispatch({ type: "APPLY_STRUCTURE", payload: "gerador" })}
+            onPress={() => {
+              setSelectedStructure("gerador")
+              dispatch({ type: "APPLY_STRUCTURE", payload: "gerador" })
+            }}
+
         >
           <Text style={styles.structureEmoji}>⚡</Text>
           <Text style={styles.structureLabel}>Gerador</Text>
@@ -62,7 +73,11 @@ export default function GameScreen({ navigation, route }: any) {
 
         <TouchableOpacity
           style={styles.structureBtn}
-          onPress={() => dispatch({ type: "APPLY_STRUCTURE", payload: "fazenda" })}
+            onPress={() => {
+              setSelectedStructure("fazenda")
+              dispatch({ type: "APPLY_STRUCTURE", payload: "fazenda" })
+            }}
+
         >
           <Text style={styles.structureEmoji}>🌿</Text>
           <Text style={styles.structureLabel}>Fazenda de O₂</Text>
@@ -70,6 +85,7 @@ export default function GameScreen({ navigation, route }: any) {
       </View>
 
       <Text style={styles.timer}>⏱️ {state.time}s</Text>
+      <EfeitosPanel structureKey={selectedStructure} />
     </View>
   )
 }
@@ -104,4 +120,61 @@ const styles = StyleSheet.create({
   structureEmoji: { fontSize: 32 },
   structureLabel: { color: "#ddd", fontSize: 12, marginTop: 6, textAlign: "center" },
   timer: { color: "#555", textAlign: "center", marginTop: 24, fontSize: 14 },
+})
+
+function EfeitosPanel({ structureKey }: { structureKey: StructureKey | null }) {
+  if (!structureKey) {
+    return (
+      <View style={efeitosStyles.container}>
+        <Text style={efeitosStyles.hint}>
+          Toque em uma estrutura para ver seus efeitos
+        </Text>
+      </View>
+    )
+  }
+
+  const structure = structures[structureKey]
+  const efeitos = structure.efeito
+
+  const labels: Record<string, string> = {
+    oxigenio: "Oxigênio",
+    comida:   "Comida",
+    energia:  "Energia",
+  }
+
+  return (
+    <View style={efeitosStyles.container}>
+      <Text style={efeitosStyles.title}>{structure.name}</Text>
+      <View style={efeitosStyles.row}>
+        {Object.entries(efeitos).map(([key, value]) => (
+          <View key={key} style={efeitosStyles.item}>
+            <Text style={[efeitosStyles.value, { color: value > 0 ? "#81C784" : "#e57373" }]}>
+              {value > 0 ? `+${value}` : value}
+            </Text>
+            <Text style={efeitosStyles.label}>{labels[key] ?? key}</Text>
+          </View>
+        ))}
+      </View>
+    </View>
+  )
+}
+
+const efeitosStyles = StyleSheet.create({
+  container: {
+    marginHorizontal: 16,
+    marginTop: 16,
+    padding: 14,
+    backgroundColor: "#1a1a2e",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#333",
+    minHeight: 70,
+    justifyContent: "center",
+  },
+  title:  { color: "#aaa", fontSize: 12, fontWeight: "600", marginBottom: 8 },
+  hint:   { color: "#444", fontSize: 13, textAlign: "center" },
+  row:    { flexDirection: "row", gap: 24 },
+  item:   { alignItems: "center" },
+  value:  { fontSize: 18, fontWeight: "bold" },
+  label:  { color: "#888", fontSize: 11, marginTop: 2 },
 })
