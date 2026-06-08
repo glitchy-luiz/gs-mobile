@@ -1,0 +1,202 @@
+{"_e":"root:init","_t":1780953745539,"format":"v0-jsonl","version":"56.1.13"}
+{"_e":"env:mode","_t":1780953745541,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780953745545,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780953745984,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780953746640,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780953756276,"atlas":false,"workers":6,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1780953770199,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780953770201,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780953770217,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780953770318,"id":"1","progress":0.24476454293628808,"total":95,"current":47}
+{"_e":"metro:bundling:progress","_t":1780953770417,"id":"1","progress":0.27547999145325236,"total":181,"current":95}
+{"_e":"metro:bundling:progress","_t":1780953770517,"id":"1","progress":0.419904,"total":250,"current":162}
+{"_e":"metro:bundling:progress","_t":1780953770617,"id":"1","progress":0.46836914062499996,"total":320,"current":219}
+{"_e":"metro:bundling:progress","_t":1780953770717,"id":"1","progress":0.6850479586063032,"total":383,"current":317}
+{"_e":"metro:bundling:progress","_t":1780953770818,"id":"1","progress":0.8178091645435629,"total":439,"current":397}
+{"_e":"metro:bundling:progress","_t":1780953770933,"id":"1","progress":0.8735529070015806,"total":459,"current":429}
+{"_e":"metro:bundling:progress","_t":1780953771037,"id":"1","progress":0.9960591171333092,"total":507,"current":506}
+{"_e":"metro:bundling:progress","_t":1780953771705,"id":"1","progress":0.999,"total":507,"current":507}
+{"_e":"metro:bundling:progress","_t":1780953771809,"id":"1","progress":0.999,"total":541,"current":539}
+{"_e":"metro:bundling:progress","_t":1780953772672,"id":"1","progress":0.999,"total":541,"current":540}
+{"_e":"metro:bundling:failed","_t":1780953772721,"id":"1","message":"Unable to resolve \"expo-sensors\" from \"src\\game\\hooks\\useAccelerometer.ts\"\n  1 | import { useEffect, useRef } from \"react\"\n> 2 | import { Accelerometer } from \"expo-sensors\"\n    |                                ^\n  3 |\n  4 | type Options = {\n  5 |   enabled: boolean","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc\\game\\hooks\\useAccelerometer.ts\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"expo-sensors\"\u001b[39m\n\n\u001b[90m \u001b[39msrc\\screens\\GameScreen.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../game/hooks/useAccelerometer\"\u001b[39m\n\n\u001b[90m \u001b[39msrc\\navigation\\AppNavigator.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../screens/GameScreen\"\u001b[39m\n\n\u001b[90m \u001b[39mApp.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./src/navigation/AppNavigator\"\u001b[39m\n\n\u001b[90m \u001b[39mindex.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./App\"\u001b[39m\n\n\u001b[90m \u001b[39m\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./index\"\u001b[39m\n","filename":null,"targetModuleName":"expo-sensors","originModulePath":"src\\game\\hooks\\useAccelerometer.ts"}
+{"_e":"root:init","_t":1780953853502,"format":"v0-jsonl","version":"56.1.13"}
+{"_e":"env:mode","_t":1780953853503,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780953853507,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780953853851,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780953854378,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780953863450,"atlas":false,"workers":6,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1780953869457,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780953869458,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780953869463,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780953869562,"id":"1","progress":0.25869500594530315,"total":116,"current":59}
+{"_e":"metro:bundling:progress","_t":1780953869664,"id":"1","progress":0.390625,"total":160,"current":100}
+{"_e":"metro:bundling:progress","_t":1780953869766,"id":"1","progress":0.390625,"total":250,"current":136}
+{"_e":"metro:bundling:progress","_t":1780953869866,"id":"1","progress":0.4049586776859504,"total":341,"current":217}
+{"_e":"metro:bundling:progress","_t":1780953869966,"id":"1","progress":0.7189010018594413,"total":401,"current":340}
+{"_e":"metro:bundling:progress","_t":1780953870069,"id":"1","progress":0.8786616167119214,"total":479,"current":449}
+{"_e":"metro:bundling:progress","_t":1780953870169,"id":"1","progress":0.9155581525507851,"total":533,"current":510}
+{"_e":"metro:bundling:progress","_t":1780953870282,"id":"1","progress":0.9963201503142286,"total":543,"current":542}
+{"_e":"metro:bundling:progress","_t":1780953871021,"id":"1","progress":0.999,"total":543,"current":543}
+{"_e":"metro:bundling:progress","_t":1780953871121,"id":"1","progress":0.999,"total":553,"current":544}
+{"_e":"metro:bundling:progress","_t":1780953871234,"id":"1","progress":0.999,"total":556,"current":550}
+{"_e":"metro:bundling:progress","_t":1780953871344,"id":"1","progress":0.999,"total":558,"current":553}
+{"_e":"metro:bundling:progress","_t":1780953872092,"id":"1","progress":0.999,"total":558,"current":554}
+{"_e":"metro:bundling:done","_t":1780953872233,"id":"1","total":558,"ms":2775.7391}
+{"_e":"metro:client_log","_t":1780953872599,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1780953872684,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780953872684,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:client_log","_t":1780953878521,"level":"warn","data":["Cannot record touch end without a touch start.\n","Touch End: {\"identifier\":0,\"pageX\":657,\"pageY\":8,\"timestamp\":9177.800000011921}\n","Touch Bank: []"]}
+{"_e":"metro:bundling:started","_t":1780953880376,"id":"3","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:client_log","_t":1780953915565,"level":"error","data":["Invalid DOM property `transform-origin`. Did you mean `transformOrigin`?"]}
+{"_e":"metro:client_log","_t":1780953915580,"level":"warn","data":["expo-sensors: setUpdateInterval() is not supported on web"]}
+{"_e":"metro:client_log","_t":1780953915602,"level":"warn","data":["An error occurred in the <GameScreen> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"root:init","_t":1780954119764,"format":"v0-jsonl","version":"56.1.13"}
+{"_e":"env:mode","_t":1780954119765,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780954119769,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780954120190,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780954120843,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780954131850,"atlas":false,"workers":6,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1780954138600,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780954138601,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780954138613,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780954140149,"id":"1","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1780954140250,"id":"1","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1780954140297,"id":"1","progress":0.04000000000000001,"total":3,"current":2}
+{"_e":"metro:bundling:progress","_t":1780954140407,"id":"1","progress":0.16000000000000003,"total":7,"current":4}
+{"_e":"metro:bundling:progress","_t":1780954141734,"id":"1","progress":0.25,"total":7,"current":5}
+{"_e":"metro:bundling:progress","_t":1780954141836,"id":"1","progress":0.25,"total":14,"current":7}
+{"_e":"metro:bundling:progress","_t":1780954141943,"id":"1","progress":0.25,"total":29,"current":10}
+{"_e":"metro:bundling:progress","_t":1780954142044,"id":"1","progress":0.25,"total":69,"current":12}
+{"_e":"metro:bundling:progress","_t":1780954142172,"id":"1","progress":0.25,"total":70,"current":13}
+{"_e":"metro:bundling:progress","_t":1780954142201,"id":"1","progress":0.25,"total":70,"current":14}
+{"_e":"metro:bundling:progress","_t":1780954142301,"id":"1","progress":0.25,"total":86,"current":17}
+{"_e":"metro:bundling:progress","_t":1780954142401,"id":"1","progress":0.25,"total":94,"current":24}
+{"_e":"metro:bundling:progress","_t":1780954142515,"id":"1","progress":0.25,"total":94,"current":28}
+{"_e":"metro:bundling:progress","_t":1780954142650,"id":"1","progress":0.25,"total":98,"current":35}
+{"_e":"metro:bundling:progress","_t":1780954142755,"id":"1","progress":0.25,"total":105,"current":43}
+{"_e":"metro:bundling:progress","_t":1780954142857,"id":"1","progress":0.25,"total":146,"current":51}
+{"_e":"metro:bundling:progress","_t":1780954142959,"id":"1","progress":0.25,"total":150,"current":60}
+{"_e":"metro:bundling:progress","_t":1780954143058,"id":"1","progress":0.25,"total":154,"current":69}
+{"_e":"metro:bundling:progress","_t":1780954143160,"id":"1","progress":0.25,"total":168,"current":75}
+{"_e":"metro:bundling:progress","_t":1780954143261,"id":"1","progress":0.25,"total":176,"current":81}
+{"_e":"metro:bundling:progress","_t":1780954143368,"id":"1","progress":0.25,"total":182,"current":86}
+{"_e":"metro:bundling:progress","_t":1780954143478,"id":"1","progress":0.25,"total":198,"current":97}
+{"_e":"metro:bundling:progress","_t":1780954143600,"id":"1","progress":0.25,"total":230,"current":102}
+{"_e":"metro:bundling:progress","_t":1780954143709,"id":"1","progress":0.25,"total":238,"current":108}
+{"_e":"metro:bundling:progress","_t":1780954143809,"id":"1","progress":0.25,"total":251,"current":115}
+{"_e":"metro:bundling:progress","_t":1780954143911,"id":"1","progress":0.25,"total":253,"current":118}
+{"_e":"metro:bundling:progress","_t":1780954143997,"id":"1","progress":0.25,"total":253,"current":119}
+{"_e":"metro:bundling:progress","_t":1780954144099,"id":"1","progress":0.25,"total":258,"current":124}
+{"_e":"metro:bundling:progress","_t":1780954144217,"id":"1","progress":0.2575753293006954,"total":266,"current":135}
+{"_e":"metro:bundling:progress","_t":1780954144302,"id":"1","progress":0.30086043662285583,"total":268,"current":147}
+{"_e":"metro:bundling:progress","_t":1780954144415,"id":"1","progress":0.30086043662285583,"total":285,"current":153}
+{"_e":"metro:bundling:progress","_t":1780954144516,"id":"1","progress":0.30086043662285583,"total":297,"current":161}
+{"_e":"metro:bundling:progress","_t":1780954144618,"id":"1","progress":0.30086043662285583,"total":299,"current":164}
+{"_e":"metro:bundling:progress","_t":1780954144727,"id":"1","progress":0.3146059335963182,"total":312,"current":175}
+{"_e":"metro:bundling:progress","_t":1780954144826,"id":"1","progress":0.3250390392623438,"total":328,"current":187}
+{"_e":"metro:bundling:progress","_t":1780954144928,"id":"1","progress":0.33714880332986474,"total":341,"current":198}
+{"_e":"metro:bundling:progress","_t":1780954145028,"id":"1","progress":0.3677379323241167,"total":343,"current":208}
+{"_e":"metro:bundling:progress","_t":1780954145135,"id":"1","progress":0.39965649359228433,"total":348,"current":220}
+{"_e":"metro:bundling:progress","_t":1780954145236,"id":"1","progress":0.4572704657597228,"total":349,"current":236}
+{"_e":"metro:bundling:progress","_t":1780954145336,"id":"1","progress":0.5213750297616604,"total":349,"current":252}
+{"_e":"metro:bundling:progress","_t":1780954145436,"id":"1","progress":0.5635628245150832,"total":353,"current":265}
+{"_e":"metro:bundling:progress","_t":1780954145536,"id":"1","progress":0.5981028657641101,"total":353,"current":273}
+{"_e":"metro:bundling:progress","_t":1780954145636,"id":"1","progress":0.6145517606525425,"total":361,"current":283}
+{"_e":"metro:bundling:progress","_t":1780954145791,"id":"1","progress":0.6241872958700894,"total":362,"current":286}
+{"_e":"metro:bundling:progress","_t":1780954145850,"id":"1","progress":0.6285598730197491,"total":362,"current":287}
+{"_e":"metro:bundling:progress","_t":1780954145949,"id":"1","progress":0.6382381288466937,"total":363,"current":290}
+{"_e":"metro:bundling:progress","_t":1780954146055,"id":"1","progress":0.6532182398198536,"total":365,"current":295}
+{"_e":"metro:bundling:progress","_t":1780954146167,"id":"1","progress":0.6532182398198536,"total":375,"current":302}
+{"_e":"metro:bundling:progress","_t":1780954146273,"id":"1","progress":0.6532182398198536,"total":380,"current":307}
+{"_e":"metro:bundling:progress","_t":1780954146374,"id":"1","progress":0.6636080415027711,"total":383,"current":312}
+{"_e":"metro:bundling:progress","_t":1780954146475,"id":"1","progress":0.688815738617331,"total":394,"current":327}
+{"_e":"metro:bundling:progress","_t":1780954146577,"id":"1","progress":0.7146783913035366,"total":401,"current":339}
+{"_e":"metro:bundling:progress","_t":1780954146680,"id":"1","progress":0.7146783913035366,"total":413,"current":344}
+{"_e":"metro:bundling:progress","_t":1780954146780,"id":"1","progress":0.7146783913035366,"total":426,"current":352}
+{"_e":"metro:bundling:progress","_t":1780954146881,"id":"1","progress":0.728442401297999,"total":430,"current":367}
+{"_e":"metro:bundling:progress","_t":1780954146982,"id":"1","progress":0.728442401297999,"total":440,"current":374}
+{"_e":"metro:bundling:progress","_t":1780954147083,"id":"1","progress":0.7498418065451034,"total":455,"current":394}
+{"_e":"metro:bundling:progress","_t":1780954147182,"id":"1","progress":0.7498418065451034,"total":464,"current":401}
+{"_e":"metro:bundling:progress","_t":1780954147282,"id":"1","progress":0.7628585162634193,"total":474,"current":414}
+{"_e":"metro:bundling:progress","_t":1780954147386,"id":"1","progress":0.7794156264771276,"total":478,"current":422}
+{"_e":"metro:bundling:progress","_t":1780954147486,"id":"1","progress":0.8011354976375552,"total":486,"current":435}
+{"_e":"metro:bundling:progress","_t":1780954147591,"id":"1","progress":0.8274648035788825,"total":487,"current":443}
+{"_e":"metro:bundling:progress","_t":1780954147699,"id":"1","progress":0.8581805863976815,"total":489,"current":453}
+{"_e":"metro:bundling:progress","_t":1780954147799,"id":"1","progress":0.8581805863976815,"total":500,"current":459}
+{"_e":"metro:bundling:progress","_t":1780954148043,"id":"1","progress":0.8581805863976815,"total":505,"current":464}
+{"_e":"metro:bundling:progress","_t":1780954148143,"id":"1","progress":0.8742986235972472,"total":508,"current":475}
+{"_e":"metro:bundling:progress","_t":1780954148245,"id":"1","progress":0.8742986235972472,"total":523,"current":484}
+{"_e":"metro:bundling:progress","_t":1780954148455,"id":"1","progress":0.8742986235972472,"total":528,"current":490}
+{"_e":"metro:bundling:progress","_t":1780954148561,"id":"1","progress":0.9010719938945108,"total":532,"current":505}
+{"_e":"metro:bundling:progress","_t":1780954148665,"id":"1","progress":0.9590741421222229,"total":532,"current":521}
+{"_e":"metro:bundling:progress","_t":1780954148767,"id":"1","progress":0.9668836331969118,"total":539,"current":530}
+{"_e":"metro:bundling:progress","_t":1780954148895,"id":"1","progress":0.9705898491083675,"total":540,"current":532}
+{"_e":"metro:bundling:progress","_t":1780954149017,"id":"1","progress":0.9816011288740984,"total":541,"current":536}
+{"_e":"metro:bundling:progress","_t":1780954149119,"id":"1","progress":0.9816011288740984,"total":554,"current":538}
+{"_e":"metro:bundling:progress","_t":1780954149186,"id":"1","progress":0.9816011288740984,"total":554,"current":539}
+{"_e":"metro:bundling:progress","_t":1780954149334,"id":"1","progress":0.9816011288740984,"total":557,"current":544}
+{"_e":"metro:bundling:progress","_t":1780954149435,"id":"1","progress":0.9816011288740984,"total":557,"current":548}
+{"_e":"metro:bundling:progress","_t":1780954149535,"id":"1","progress":0.9857144692385762,"total":558,"current":554}
+{"_e":"metro:bundling:progress","_t":1780954149635,"id":"1","progress":0.9892762169036883,"total":558,"current":555}
+{"_e":"metro:bundling:progress","_t":1780954149666,"id":"1","progress":0.9928443879189629,"total":558,"current":556}
+{"_e":"metro:bundling:progress","_t":1780954149774,"id":"1","progress":0.9964189822844003,"total":558,"current":557}
+{"_e":"metro:bundling:progress","_t":1780954151003,"id":"1","progress":0.999,"total":558,"current":558}
+{"_e":"metro:bundling:progress","_t":1780954151104,"id":"1","progress":0.999,"total":562,"current":562}
+{"_e":"metro:bundling:done","_t":1780954151437,"id":"1","total":562,"ms":12837.2494}
+{"_e":"metro:client_log","_t":1780954151769,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1780954151772,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780954151773,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:client_log","_t":1780954157023,"level":"warn","data":["Cannot record touch end without a touch start.\n","Touch End: {\"identifier\":0,\"pageX\":618,\"pageY\":28,\"timestamp\":18722.79999999702}\n","Touch Bank: []"]}
+{"_e":"metro:bundling:started","_t":1780954158980,"id":"3","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:client_log","_t":1780954191738,"level":"error","data":["Invalid DOM property `transform-origin`. Did you mean `transformOrigin`?"]}
+{"_e":"metro:client_log","_t":1780954191758,"level":"warn","data":["expo-sensors: setUpdateInterval() is not supported on web"]}
+{"_e":"metro:client_log","_t":1780954191779,"level":"warn","data":["An error occurred in the <GameScreen> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:bundling:started","_t":1780954473515,"id":"5","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780954473515,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780954473558,"id":"5","total":1,"ms":42.7658}
+{"_e":"metro:bundling:started","_t":1780954473777,"id":"7","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:client_log","_t":1780954474050,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1780954474052,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780954474056,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:client_log","_t":1780954509541,"level":"error","data":["Invalid DOM property `transform-origin`. Did you mean `transformOrigin`?"]}
+{"_e":"metro:client_log","_t":1780954509558,"level":"warn","data":["expo-sensors: setUpdateInterval() is not supported on web"]}
+{"_e":"metro:client_log","_t":1780954509574,"level":"warn","data":["An error occurred in the <GameScreen> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:bundling:started","_t":1780954645957,"id":"a","platform":"web","environment":null,"entry":"src\\game\\hooks\\useAccelerometer.ts"}
+{"_e":"metro:bundling:started","_t":1780954718849,"id":"b","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780954718849,"id":"b","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780954718879,"id":"b","total":1,"ms":29.2804}
+{"_e":"metro:bundling:started","_t":1780954719107,"id":"d","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:client_log","_t":1780954719431,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1780954719431,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780954719432,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:client_log","_t":1780954746274,"level":"error","data":["Invalid DOM property `transform-origin`. Did you mean `transformOrigin`?"]}
+{"_e":"metro:client_log","_t":1780954772435,"level":"error","data":["Project is incompatible with this version of Expo Go\n\nThis project requires a newer version of Expo Go.\n\nHow to fix this error:\nDownload the latest version of Expo Go from the Play Store."]}
+{"_e":"metro:client_log","_t":1780954798742,"level":"error","data":["Project is incompatible with this version of Expo Go\n\nThis project requires a newer version of Expo Go.\n\nHow to fix this error:\nDownload the latest version of Expo Go from the Play Store."]}
+{"_e":"root:init","_t":1780955072550,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1780955072552,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780955072556,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780955072944,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780955073536,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780955084426,"atlas":false,"workers":6,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1780955089047,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780955089048,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780955089056,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780955089157,"id":"1","progress":0.05444444444444445,"total":90,"current":21}
+{"_e":"metro:bundling:progress","_t":1780955089264,"id":"1","progress":0.12696525300568107,"total":174,"current":62}
+{"_e":"metro:bundling:progress","_t":1780955089364,"id":"1","progress":0.28181679622008843,"total":243,"current":129}
+{"_e":"metro:bundling:progress","_t":1780955089466,"id":"1","progress":0.4961058601134216,"total":345,"current":243}
+{"_e":"metro:bundling:progress","_t":1780955089578,"id":"1","progress":0.6425763140682388,"total":373,"current":299}
+{"_e":"metro:bundling:progress","_t":1780955089678,"id":"1","progress":0.8144960176058329,"total":441,"current":398}
+{"_e":"metro:bundling:progress","_t":1780955089778,"id":"1","progress":0.8745373068654205,"total":509,"current":476}
+{"_e":"metro:bundling:progress","_t":1780955089879,"id":"1","progress":0.9307416675558738,"total":539,"current":520}
+{"_e":"metro:bundling:progress","_t":1780955089989,"id":"1","progress":0.9964189822844003,"total":558,"current":557}
+{"_e":"metro:bundling:progress","_t":1780955091244,"id":"1","progress":0.999,"total":558,"current":558}
+{"_e":"metro:bundling:progress","_t":1780955091349,"id":"1","progress":0.999,"total":561,"current":560}
+{"_e":"metro:bundling:progress","_t":1780955092303,"id":"1","progress":0.999,"total":561,"current":561}
+{"_e":"metro:bundling:done","_t":1780955092429,"id":"1","total":561,"ms":3382.226}
+{"_e":"metro:client_log","_t":1780955092724,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1780955092725,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780955092726,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:client_log","_t":1780955105061,"level":"error","data":["Project is incompatible with this version of Expo Go\n\nThis project requires a newer version of Expo Go.\n\nHow to fix this error:\nDownload the latest version of Expo Go from the Play Store."]}
+{"_e":"metro:client_log","_t":1780955120765,"level":"warn","data":["Cannot record touch end without a touch start.\n","Touch End: {\"identifier\":0,\"pageX\":803,\"pageY\":29,\"timestamp\":31959.59999999404}\n","Touch Bank: []"]}
+{"_e":"metro:bundling:started","_t":1780955122833,"id":"3","platform":"web","environment":null,"entry":"index.js"}

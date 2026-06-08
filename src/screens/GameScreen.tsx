@@ -16,8 +16,8 @@ export default function GameScreen({ navigation, route }: any) {
 
   const { state, dispatch, multipliers } = useGame(planetData)
   const [selectedStructure, setSelectedStructure] = useState<StructureKey | null>(null)
+  const [showTip, setShowTip] = useState(true)
 
-  // Alimenta o sismicLevel no reducer a cada leitura do acelerômetro
   useAccelerometer({
     enabled: !state.gameOver,
     gravity: planetData.gravidade,
@@ -25,6 +25,11 @@ export default function GameScreen({ navigation, route }: any) {
       dispatch({ type: "SET_SISMIC_LEVEL", payload: level })
     },
   })
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowTip(false), 5000)
+    return () => clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     if (state.gameOver) {
@@ -40,9 +45,24 @@ export default function GameScreen({ navigation, route }: any) {
     <View style={styles.container}>
       <ResourceHeader resources={state.resources} />
 
-      <SismicBar level={state.sismicLevel} />
+      {showTip && (
+        <TouchableOpacity style={styles.tipCard} onPress={() => setShowTip(false)}>
+          <Text style={styles.tipTitle}>🌍 Condições do seu planeta</Text>
+          <Text style={styles.tipText}>
+            Com gravidade de {planetData.gravidade}g,
+            {planetData.gravidade > 3
+              ? " este planeta tem alta atividade tectônica. Manter o celular inclinado irá drenar seus recursos rapidamente."
+              : planetData.gravidade < 1
+              ? " este planeta é geologicamente estável. A atividade sísmica quase não te afetará."
+              : " a atividade sísmica é similar à da Terra. Cuidado com inclinações prolongadas."}
+          </Text>
+          <Text style={styles.tipDismiss}>Toque para fechar</Text>
+        </TouchableOpacity>
+      )}
 
-      {/* Estruturas */}
+      {/* ← gravity passado aqui */}
+      <SismicBar level={state.sismicLevel} gravity={planetData.gravidade} />
+
       <View style={styles.structuresRow}>
         {(Object.keys(structures) as StructureKey[]).map(key => (
           <TouchableOpacity
@@ -61,20 +81,26 @@ export default function GameScreen({ navigation, route }: any) {
         ))}
       </View>
 
-      <EfeitosPanel structureKey={selectedStructure} sismicLevel={state.sismicLevel} />
+      {/* ← planetData passado como prop */}
+      <EfeitosPanel
+        structureKey={selectedStructure}
+        sismicLevel={state.sismicLevel}
+        planetData={planetData}
+      />
 
       <Text style={styles.timer}>⏱️ {state.time}s</Text>
     </View>
   )
 }
 
-// EfeitosPanel atualizado para mostrar impacto da sísmica nos custos
 function EfeitosPanel({
   structureKey,
   sismicLevel,
+  planetData,  // ← recebe planetData como prop
 }: {
   structureKey: StructureKey | null
   sismicLevel: number
+  planetData: PlanetData
 }) {
   if (!structureKey) {
     return (
@@ -94,7 +120,6 @@ function EfeitosPanel({
       <Text style={efeitosStyles.title}>{structure.name}</Text>
       <View style={efeitosStyles.row}>
         {Object.entries(structure.efeito).map(([key, value]) => {
-          // Mostra o custo real considerando a sísmica atual
           const adjusted = value < 0
             ? Math.round(value * (1 + sismicLevel * 0.5))
             : value
@@ -111,9 +136,14 @@ function EfeitosPanel({
           )
         })}
       </View>
+
       {sismicLevel > 0.3 && (
         <Text style={efeitosStyles.warning}>
-          ⚠️ Atividade sísmica aumentando os custos em {Math.round(sismicLevel * 50)}%
+          ⚠️ Tremores ativos — custos aumentados em {Math.round(sismicLevel * 50)}%{"\n"}
+          <Text style={{ color: "#555", fontSize: 10 }}>
+            Planetas com gravidade {planetData.gravidade}g têm crosta mais densa e
+            {planetData.gravidade > 3 ? " maior atividade tectônica" : " atividade tectônica moderada"}
+          </Text>
         </Text>
       )}
     </View>
@@ -127,16 +157,28 @@ const styles = StyleSheet.create({
   structureEmoji: { fontSize: 32 },
   structureLabel: { color: "#ddd", fontSize: 12, marginTop: 6, textAlign: "center" },
   timer:          { color: "#555", textAlign: "center", marginTop: 16, fontSize: 14 },
+  tipCard: {
+    marginHorizontal: 16, marginTop: 8, padding: 14,
+    backgroundColor: "#1a2a3a", borderRadius: 12,
+    borderWidth: 1, borderColor: "#4a90e2",
+  },
+  tipTitle:   { color: "#4a90e2", fontSize: 13, fontWeight: "bold", marginBottom: 6 },
+  tipText:    { color: "#ddd", fontSize: 13, lineHeight: 20 },
+  tipDismiss: { color: "#555", fontSize: 11, marginTop: 8, textAlign: "right" },
 })
 
 const efeitosStyles = StyleSheet.create({
-  container:  { marginHorizontal: 16, marginTop: 12, padding: 14, backgroundColor: "#1a1a2e", borderRadius: 12, borderWidth: 1, borderColor: "#333", minHeight: 70, justifyContent: "center" },
-  title:      { color: "#aaa", fontSize: 12, fontWeight: "600", marginBottom: 8 },
-  hint:       { color: "#444", fontSize: 13, textAlign: "center" },
-  row:        { flexDirection: "row", gap: 24 },
-  item:       { alignItems: "center" },
-  value:      { fontSize: 18, fontWeight: "bold" },
-  label:      { color: "#888", fontSize: 11, marginTop: 2 },
-  sismicTag:  { fontSize: 12 },
-  warning:    { color: "#FF8A65", fontSize: 11, marginTop: 8 },
+  container: {
+    marginHorizontal: 16, marginTop: 12, padding: 14,
+    backgroundColor: "#1a1a2e", borderRadius: 12,
+    borderWidth: 1, borderColor: "#333", minHeight: 70, justifyContent: "center",
+  },
+  title:     { color: "#aaa", fontSize: 12, fontWeight: "600", marginBottom: 8 },
+  hint:      { color: "#444", fontSize: 13, textAlign: "center" },
+  row:       { flexDirection: "row", gap: 24 },
+  item:      { alignItems: "center" },
+  value:     { fontSize: 18, fontWeight: "bold" },
+  label:     { color: "#888", fontSize: 11, marginTop: 2 },
+  sismicTag: { fontSize: 12 },
+  warning:   { color: "#FF8A65", fontSize: 11, marginTop: 8 },
 })

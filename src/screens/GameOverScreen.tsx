@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from "react-native"
+import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, ScrollView } from "react-native"
 import { getAuth } from "firebase/auth"
 import { salvarPartida } from "../firebase/historicoService"
 import { GameSummary } from "../game/types/gameTypes"
@@ -19,7 +19,6 @@ export default function GameOverScreen({ navigation, route }: Props) {
       try {
         const user = getAuth().currentUser
         if (!user) throw new Error("Usuário não autenticado")
-
         await salvarPartida(user.uid, { time, planetData, multipliers })
       } catch (e) {
         setSaveError(true)
@@ -27,12 +26,14 @@ export default function GameOverScreen({ navigation, route }: Props) {
         setSaving(false)
       }
     }
-
     salvar()
   }, [])
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={{ flex: 1, backgroundColor: "#0a0a0f" }}
+      contentContainerStyle={styles.container}
+    >
       <Text style={styles.title}>💀 Missão Encerrada</Text>
       <Text style={styles.subtitle}>Você sobreviveu {time} segundos</Text>
 
@@ -50,7 +51,22 @@ export default function GameOverScreen({ navigation, route }: Props) {
         <Text style={styles.cardText}>Energia decaiu {multipliers.energia.toFixed(1)}x mais rápido</Text>
       </View>
 
-      {/* Feedback do save */}
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>🌍 Sobre a gravidade do seu planeta</Text>
+        <Text style={styles.cardText}>
+          Com {planetData.gravidade}g,
+          {planetData.gravidade > 3
+            ? ` seu planeta tem ${((planetData.gravidade - 1) * 100).toFixed(0)}% mais força gravitacional que a Terra, tornando a crosta instável e os tremores muito mais frequentes.`
+            : planetData.gravidade < 1
+            ? ` seu planeta tem gravidade menor que a Terra, resultando em menor pressão na crosta e atividade sísmica reduzida.`
+            : ` a gravidade é próxima da terrestre — a atividade sísmica se comporta de forma familiar.`}
+        </Text>
+        <Text style={[styles.cardText, { marginTop: 6, color: "#555" }]}>
+          Na realidade, planetas com alta gravidade tendem a ter núcleos maiores
+          e mais ativos, gerando mais calor interno e atividade tectônica.
+        </Text>
+      </View>
+
       {saving && (
         <View style={styles.saveStatus}>
           <ActivityIndicator size="small" color="#4a90e2" />
@@ -71,17 +87,17 @@ export default function GameOverScreen({ navigation, route }: Props) {
       >
         <Text style={styles.buttonText}>Voltar ao início 🚀</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  container:      { flex: 1, backgroundColor: "#0a0a0f", padding: 24, justifyContent: "center" },
-  title:          { fontSize: 32, color: "#fff", fontWeight: "bold", textAlign: "center", marginBottom: 8 },
+  container:      { padding: 24, paddingBottom: 48 },
+  title:          { fontSize: 32, color: "#fff", fontWeight: "bold", textAlign: "center", marginBottom: 8, marginTop: 40 },
   subtitle:       { fontSize: 18, color: "#888", textAlign: "center", marginBottom: 32 },
   card:           { backgroundColor: "#1a1a2e", borderRadius: 12, padding: 16, marginBottom: 16, borderWidth: 1, borderColor: "#333" },
   cardTitle:      { color: "#aaa", fontSize: 12, fontWeight: "600", marginBottom: 8 },
-  cardText:       { color: "#ddd", fontSize: 14, marginBottom: 4 },
+  cardText:       { color: "#ddd", fontSize: 14, marginBottom: 4, lineHeight: 20 },
   saveStatus:     { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, marginBottom: 12 },
   saveText:       { color: "#888", fontSize: 13 },
   saveError:      { color: "#e57373", textAlign: "center", marginBottom: 12, fontSize: 13 },
