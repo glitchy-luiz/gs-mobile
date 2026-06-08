@@ -1,42 +1,45 @@
-import { push, ref, get, query, orderByChild } from 'firebase/database';
+import { push, ref, get, query, orderByChild, set } from 'firebase/database';
 import { db } from './config';
 
-/**
- * Salva uma partida no histórico do usuário.
- * Estrutura no Realtime Database:
- * historico/
- *   {userId}/
- *     {partidaId}/
- *       timestamp, time, planetData, multipliers
- */
 export async function salvarPartida(userId, partida) {
-  const partidasRef = ref(db, `historico/${userId}`);
-  const newPartidaRef = push(partidasRef);
-  await push(partidasRef, {
+  if (!userId) throw new Error('Usuário não autenticado')
+  if (!partida || !partida.time == null || !partida.planetData || !partida.multipliers) {
+    throw new Error('Dados da partida incompletos')
+  }
+
+  const partidasRef = ref(db, `historico/${userId}`)
+  const newPartidaRef = push(partidasRef)   // gera a ref
+
+  // Corrigido: era push(partidasRef, dados) após push(partidasRef)
+  // o que causava dois registros por partida
+  await set(newPartidaRef, {
     ...partida,
     timestamp: Date.now(),
-  });
-  return newPartidaRef.key;
+  })
+
+  return newPartidaRef.key
 }
 
-/**
- * Busca todas as partidas do usuário, ordenadas da mais recente.
- * Retorna array de objetos { id, ...dadosDaPartida }
- */
 export async function buscarHistorico(userId) {
+  if (!userId) throw new Error('Usuário não autenticado')
+
   const partidasRef = query(
     ref(db, `historico/${userId}`),
     orderByChild('timestamp')
-  );
+  )
 
-  const snapshot = await get(partidasRef);
+  const snapshot = await get(partidasRef)
 
-  if (!snapshot.exists()) return [];
+  if (!snapshot.exists()) return []
 
-  const partidas = [];
+  const partidas = []
   snapshot.forEach(child => {
-    partidas.unshift({ id: child.key, ...child.val() }); // unshift = mais recente primeiro
-  });
+    const val = child.val()
+    // Ignora registros corrompidos que não têm os campos esperados
+    if (val && val.timestamp && val.time != null && val.planetData && val.multipliers) {
+      partidas.unshift({ id: child.key, ...val })
+    }
+  })
 
-  return partidas;
+  return partidas
 }

@@ -17,13 +17,13 @@ export default function GameScreen({ navigation, route }: any) {
   const { state, dispatch, multipliers } = useGame(planetData)
   const [selectedStructure, setSelectedStructure] = useState<StructureKey | null>(null)
   const [showTip, setShowTip] = useState(true)
+  const [sensorDenied, setSensorDenied] = useState(false)
 
   useAccelerometer({
     enabled: !state.gameOver,
     gravity: planetData.gravidade,
-    onSismicChange: (level) => {
-      dispatch({ type: "SET_SISMIC_LEVEL", payload: level })
-    },
+    onSismicChange: (level) => dispatch({ type: "SET_SISMIC_LEVEL", payload: level }),
+    onPermissionDenied: () => setSensorDenied(true),
   })
 
   useEffect(() => {
@@ -62,6 +62,14 @@ export default function GameScreen({ navigation, route }: any) {
 
       {/* ← gravity passado aqui */}
       <SismicBar level={state.sismicLevel} gravity={planetData.gravidade} />
+
+      {sensorDenied && (
+        <View style={styles.permissionWarning}>
+          <Text style={styles.permissionText}>
+            ⚠️ Permissão do sensor negada — atividade sísmica desativada
+          </Text>
+        </View>
+      )}
 
       <View style={styles.structuresRow}>
         {(Object.keys(structures) as StructureKey[]).map(key => (
@@ -165,6 +173,12 @@ const styles = StyleSheet.create({
   tipTitle:   { color: "#4a90e2", fontSize: 13, fontWeight: "bold", marginBottom: 6 },
   tipText:    { color: "#ddd", fontSize: 13, lineHeight: 20 },
   tipDismiss: { color: "#555", fontSize: 11, marginTop: 8, textAlign: "right" },
+  permissionWarning: {
+    marginHorizontal: 16, marginTop: 8, padding: 10,
+    backgroundColor: '#2a2a1a', borderRadius: 8,
+    borderWidth: 1, borderColor: '#FFD54F',
+  },
+  permissionText: { color: '#FFD54F', fontSize: 12, textAlign: 'center' },
 })
 
 const efeitosStyles = StyleSheet.create({
