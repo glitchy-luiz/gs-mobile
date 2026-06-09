@@ -10,7 +10,7 @@ const clamp = (value: number) => Math.max(0, Math.min(100, value))
 
 export function updateResources(
   state: GameState,
-  multipliers: DifficultyMultipliers  // ← novo parâmetro
+  multipliers: DifficultyMultipliers
 ): GameState {
   const sismicGactor = 1 + state.sismicLevel
 
@@ -38,7 +38,7 @@ export function applyStructureEffect(
   effect: ResourceEffect,
   sismicLevel: number = 0
 ): GameState {
-  const sismicCostFactor = 1 + sismicLevel * 0.5  // até +50% nos custos
+  const sismicCostFactor = 1 + sismicLevel * 0.5
 
   const newResources = { ...state.resources }
 

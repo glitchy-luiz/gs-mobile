@@ -27,12 +27,10 @@ function formatarTempo(segundos: number): string {
 export default function HistoricoCard({ partida }: Props) {
   const { time, timestamp, planetData, multipliers } = partida
 
-  // Dificuldade média como indicador geral
   const diffMedia = ((multipliers.oxigenio + multipliers.comida + multipliers.energia) / 3).toFixed(1)
 
   return (
     <View style={styles.card}>
-      {/* Header: tempo sobrevivido + data */}
       <View style={styles.header}>
         <Text style={styles.tempo}>⏱️ {formatarTempo(time)}</Text>
         <Text style={styles.data}>{formatarData(timestamp)}</Text>
@@ -56,7 +54,6 @@ export default function HistoricoCard({ partida }: Props) {
   )
 }
 
-// Verde → amarelo → vermelho conforme dificuldade
 function diffColor(value: number): string {
   if (value < 1.2) return "#81C784"
   if (value < 1.8) return "#FFD54F"

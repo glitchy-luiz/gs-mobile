@@ -1,4 +1,5 @@
 import { structures } from "../data/structure"
+// LEMBRETE. conquistas, ações especiais e cooldown não foram implementados no momento (próximos avanços que pra seguir)
 
 // ─── Planeta ───────────────────────────────────────────────────────────────
 
@@ -26,8 +27,6 @@ export type Resources = {
   energia: number
 }
 
-// Efeito que uma ação de estrutura causa nos recursos
-// Partial porque nem toda estrutura afeta todos os recursos
 export type ResourceEffect = Partial<Record<ResourceKey, number>>
 
 // ─── Estruturas ────────────────────────────────────────────────────────────
@@ -37,15 +36,15 @@ export type StructureKey = keyof typeof structures
 export type StructureAction = {
   id: string
   label: string
-  cooldown: number          // ms entre usos
+  cooldown: number
   effects: ResourceEffect
-  educationalText: string   // exibido no modal antes de confirmar a ação
+  educationalText: string
 }
 
 export type Structure = {
   name: string
-  efeito: ResourceEffect    // decaimento passivo/efeito direto ao ativar
-  actions?: StructureAction[] // ações futuras via modal (opcional no MVP)
+  efeito: ResourceEffect
+  actions?: StructureAction[]
 }
 
 // ─── Conquistas ────────────────────────────────────────────────────────────
@@ -63,10 +62,10 @@ export type UnlockedAchievements = Record<string, boolean>
 
 export type GameState = {
   resources: Resources
-  time: number              // segundos decorridos
+  time: number
   gameOver: boolean
   achievements: UnlockedAchievements
-  sismicLevel: number        // 0 = estável, 1 = atividade máxima
+  sismicLevel: number
 }
 
 // ─── Resumo pós-partida ────────────────────────────────────────────────────

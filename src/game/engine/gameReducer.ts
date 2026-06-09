@@ -10,8 +10,6 @@ export const initialState: GameState = {
   sismicLevel: 0,
 }
 
-// O reducer agora é uma factory que recebe os multipliers
-// e devolve o reducer já configurado com eles
 export function makeGameReducer(multipliers: DifficultyMultipliers) {
   return function gameReducer(state: GameState, action: GameAction): GameState {
     if (state.gameOver && action.type !== "RESET") return state

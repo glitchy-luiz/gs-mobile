@@ -20,11 +20,6 @@ export default function AppNavigator() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Game" component={GameScreen} />
         <Stack.Screen name="GameOver" component={GameOverScreen} options={{ headerShown: false }} />
-        {/* <Stack.Screen
-          name="BarcodeScanner"
-          component={BarcodeScannerScreen}
-          options={{ title: 'Ler código de barras' }}
-        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

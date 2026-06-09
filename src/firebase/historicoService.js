@@ -8,10 +8,8 @@ export async function salvarPartida(userId, partida) {
   }
 
   const partidasRef = ref(db, `historico/${userId}`)
-  const newPartidaRef = push(partidasRef)   // gera a ref
+  const newPartidaRef = push(partidasRef)   
 
-  // Corrigido: era push(partidasRef, dados) após push(partidasRef)
-  // o que causava dois registros por partida
   await set(newPartidaRef, {
     ...partida,
     timestamp: Date.now(),
@@ -35,7 +33,6 @@ export async function buscarHistorico(userId) {
   const partidas = []
   snapshot.forEach(child => {
     const val = child.val()
-    // Ignora registros corrompidos que não têm os campos esperados
     if (val && val.timestamp && val.time != null && val.planetData && val.multipliers) {
       partidas.unshift({ id: child.key, ...val })
     }

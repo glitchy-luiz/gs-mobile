@@ -106,7 +106,6 @@ export default function HomeScreen({ navigation }: any) {
           />
         }
       >
-        {/* ── Formulário ── */}
         <Text style={styles.title}>Criar Planeta</Text>
         <Text style={styles.subtitle}>
           Configure as condições do seu planeta antes de começar a sobreviver.

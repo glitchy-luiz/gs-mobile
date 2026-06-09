@@ -5,7 +5,6 @@ import {
 } from 'firebase/auth';
 import { auth } from './config';
 
-// Traduz os códigos de erro do Firebase para mensagens em português
 export function translateFirebaseError(code) {
   const errors = {
     'auth/invalid-email':            'Email inválido. Verifique o formato.',

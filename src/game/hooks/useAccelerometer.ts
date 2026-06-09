@@ -6,7 +6,7 @@ type Options = {
   enabled: boolean
   gravity: number
   onSismicChange: (level: number) => void
-  onPermissionDenied?: () => void  // ← callback opcional para a UI reagir
+  onPermissionDenied?: () => void
 }
 
 function calcSensitivity(gravity: number): number {
@@ -33,7 +33,6 @@ export function useAccelerometer({ enabled, gravity, onSismicChange, onPermissio
 
     async function init() {
       try {
-        // Verifica e solicita permissão antes de iniciar
         const { status } = await Accelerometer.requestPermissionsAsync()
 
         if (status !== 'granted') {
@@ -51,7 +50,6 @@ export function useAccelerometer({ enabled, gravity, onSismicChange, onPermissio
           onSismicChange(rounded)
         })
       } catch (e) {
-        // Sensor não disponível no dispositivo
         onSismicChange(0)
       }
     }

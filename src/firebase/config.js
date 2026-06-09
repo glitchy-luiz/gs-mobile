@@ -6,6 +6,7 @@ import { getDatabase } from 'firebase/database';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+//! Substitua abaixo pelas suas credencias do firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDLXgtjtVEb7aqxdDOONIdB3WRmtAVvD8c",
   authDomain: "gs-mobile-74759.firebaseapp.com",

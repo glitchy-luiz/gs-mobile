@@ -60,7 +60,6 @@ export default function GameScreen({ navigation, route }: any) {
         </TouchableOpacity>
       )}
 
-      {/* ← gravity passado aqui */}
       <SismicBar level={state.sismicLevel} gravity={planetData.gravidade} />
 
       {sensorDenied && (
@@ -104,7 +103,7 @@ export default function GameScreen({ navigation, route }: any) {
 function EfeitosPanel({
   structureKey,
   sismicLevel,
-  planetData,  // ← recebe planetData como prop
+  planetData,
 }: {
   structureKey: StructureKey | null
   sismicLevel: number

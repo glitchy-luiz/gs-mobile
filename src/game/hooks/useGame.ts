@@ -5,7 +5,6 @@ import { calcDifficulty } from "../engine/difficultSystem"
 import { PlanetData } from "../types/gameTypes"
 
 export function useGame(planetData: PlanetData) {
-  // Multipliers calculados uma única vez na montagem do hook
   const multipliers = useRef(calcDifficulty(planetData)).current
   const reducer = useRef(makeGameReducer(multipliers)).current
 
@@ -46,6 +45,5 @@ export function useGame(planetData: PlanetData) {
     }
   }
 
-  // Expõe os multipliers para a GameScreen poder exibir o tooltip educativo
   return { state, dispatch, multipliers }
 }
