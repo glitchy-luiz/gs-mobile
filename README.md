@@ -284,9 +284,9 @@ Os ranges de referência utilizados (-257°C a 550°C para temperatura, 0.1g a 1
 ---
  
 ## 👨‍💻 Autores
-Bruno Otávio
-Guilherme Flores
-Leonardo
-Luiz Souza
-Marcello Freitas
+- Guilherme Flores Pereira de Almeida RM554948
+- Luiz Fernando de Aragão Souza RM555561
+- Bruno Otavio Silva De Oliveira RM556196
+- Marcello de Freitas Moreira RM557531
+- Leonardo Gonçalves Novaes RM554807
  
